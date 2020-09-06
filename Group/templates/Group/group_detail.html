@@ -1,0 +1,67 @@
+{% extends 'Group/group_base.html' %}
+{% load bootstrap4%}
+{%block pregroup%}
+<h1>Group:{{group.name}}</h1>
+<br>
+<div style="margin-left: 30px">
+	<h2><button style="border-radius:10pcpx;background-color: azure">Members<span style="margin-left:14px" class='badge badge-danger'>{{group.members.count}}</span></button></h2>
+<br>
+<h2>Discription:{{group.discription}}	</h2>
+<br>
+{%for member in group.members.all %}
+<ul>
+	<li>{{member.username}} is the member of this group</li>
+</ul>
+{%endfor%}
+
+{%if user.is_authenticated %}
+<div class='container'>
+	{%if user in group.members.all %}
+	<a href="{%url 'groups:leave_group' slug=group.slug %}" class = 'btn btn-lg btn-fill btn-danger'>Leave</a>
+	{%else%}
+	<a href="{%url 'groups:join_group' slug=group.slug %}" class = 'btn btn-lg btn-fill btn-warning'><span class = 'glyphicon glyphicon-ok-circle'></span>join group</a>
+	{%endif%}
+	<a  class='btn btn-default btn-fill btn-success' href="{%url 'posts:create_post_form' pk=group.pk %}">Create Post</a>
+	{%if user.is_authenticated and user == group.user %}
+		<a  class = 'btn btn-lg btn-fill btn-danger' href="{%url 'groups:delete_group' slug=group.slug %}">Delete Group</a>
+	{%endif%}
+
+</div>
+{%else%}
+<a style="margin-left: 400px" href="{% url 'accounts:login' %}" class = 'btn btn-success btn-fill'>For join You Must Login </a>
+{%endif%}
+
+<h2>Posts:</h2>
+
+
+{% if group.posts.count == 0 %}	
+<div class='jumbotron'>
+	<div class='container'>
+		
+		<h2>Sorry ,No Post Yet On this Group</h2>
+	</div>
+</div>
+
+{%else%}
+{%for post in group.posts.all %}
+<div style="background-color: snow;width: 500px" class="card">
+  <div class="card-body">
+   <ul><li>{{post.message}}by  <h2>Member"{{post.user.username}}"</h2></li></ul>
+  </div>
+</div>
+<br>
+
+	
+{%endfor%}
+
+
+{%endif%}
+
+
+
+</div>
+
+
+
+{%endblock%}
+

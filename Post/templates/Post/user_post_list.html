@@ -1,0 +1,50 @@
+{%extends 'Social/base.html'%}
+{%block body_block%}
+
+
+	<div class='Jumbotron'>
+
+		<div class= 'container'>
+			<h1 style="text-align: center;">Your Post</h1>
+				
+						{%if not post_list %}
+							<h1>Sorry you dont have any post</h1>
+							{%else%}
+					</div>
+	</div>
+
+				
+<div style="margin-left: 300px;">				
+{%for post in post_list%}
+<div style="background-color: snow;width: 500px;text-align: center;margin-bottom: 20px;" class="card">
+  <div class="card-body"style="padding-right: 20px;">
+   <ul style="padding-left: 0;"><h3><li class="list-group-item list-group-item-info">{{post.group.name}}</li></h3>
+					 
+					 <li class="list-group-item list-group-item-success">Discription:{{post.message}}</li>
+					 <li class="list-group-item list-group-item-warning">Your Name : {{post.user.username}}</li>
+					<br><br>
+				
+		</ul>
+  </div>
+
+</div>
+
+
+	{%endfor%}
+
+</div>
+	
+{%endif%}
+
+{%endblock%}
+
+		<!-- <ul><h3><li></h3>by<h3></h3> <h3>on this group </h3></li></ul> -->
+	<!-- 	
+	<div class="card-columns">
+  <div class="card bg-primary">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the first card</p>
+    </div>
+  </div>
+  
+  <div></div> -->

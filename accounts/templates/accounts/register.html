@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{%load bootstrap4%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+  <body style="border: 5px solid black">
+
+    <div  class="jumbotron">
+      <div  class="container">
+        <h1>Register</h1>
+        <form  method="post">
+        {% csrf_token %}
+        
+        {%bootstrap_form form%}
+        <input class = 'btn btn-primary' type="submit" name="" value="Submit">
+        <a class = 'btn btn-danger' href="{%url 'accounts:login'%}">Cancel</a>
+        </form>
+
+      </div>
+
+    </div>
+    <style type="text/css">
+      body{
+        background-color: bisque;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+{%extends 'Social/base.html'%}
+{%block body_block%}
+
+
+<div class='jumbotron'>
+	<div class='container'>
+		
+		<div style="background-color: azure" class="card">
+  <div class="card-header"><h1>This Post is Posted by {{post.user.username}}</h1></div>
+  <div class="card-body"><h2>Message is "{{post.message}}"</h2></div>
+    <div class="card-body">	<h2>On the {{post.group.name}}</h2>
+</div>
+
+  <div class="card-footer"><h3>This post is created at {{post.created_at}}</h3></div>
+</div>
+
+		
+		
+		
+	
+		{%if user.is_authenticated and user == post.user %}
+		<a  class = 'btn btn-large btn-fill btn-danger' href="{%url 'posts:delete_post' pk=post.pk %}">Delete Post</a>
+		{%endif%}
+	</div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,17 @@
+{%extends 'Social/base.html'%}
+{% load bootstrap4%}
+{%block body_block%}
+<h1>Delete Post</h1>
+<div  class = 'jumbotron'>
+	<div class='container-fluid'>
+		<h1>Are You Sure to delete the group</h1>
+		<form  method='post'>
+			{% csrf_token %}
+        
+        {{form.as_p}}
+        <input class = 'btn btn-danger btn-lg btn-fill' type="submit" name="" value="Delete">
+        <a class = 'btn btn-primary btn-lg btn-fill' href="{%url 'groups:single' slug=group.slug %}">Cancel</a>
+</form>
+	</div>
+</div>
+{%endblock%}
