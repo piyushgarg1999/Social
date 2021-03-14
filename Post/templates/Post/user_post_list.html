@@ -1,7 +1,15 @@
 {%extends 'Social/base.html'%}
 {%block body_block%}
 
+<style type="text/css">
+	#maindiv{
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
 
+	}
+</style>
 	<div class='Jumbotron'>
 
 		<div class= 'container'>
@@ -14,14 +22,15 @@
 	</div>
 
 				
-<div style="margin-left: 300px;">				
+<div id='maindiv'>				
 {%for post in post_list%}
 <div style="background-color: snow;width: 500px;text-align: center;margin-bottom: 20px;" class="card">
   <div class="card-body"style="padding-right: 20px;">
    <ul style="padding-left: 0;"><h3><li class="list-group-item list-group-item-info">{{post.group.name}}</li></h3>
 					 
-					 <li class="list-group-item list-group-item-success">Discription:{{post.message}}</li>
+					 <li class="list-group-item list-group-item-success">Message:{{post.message}}</li>
 					 <li class="list-group-item list-group-item-warning">Your Name : {{post.user.username}}</li>
+					 <li class="list-group-item list-group-item-success">Created At:{{post.created_at}}</li>
 					<br><br>
 				
 		</ul>

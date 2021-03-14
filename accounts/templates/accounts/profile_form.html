@@ -2,14 +2,22 @@
 {% block body_block %}
 <div class = 'jumbotron'>
 	<div class='container'>
-		<h1>Your User Name : {{user.username}}</h1>
+		<h1>Your User Name : {{user.get_full_name}}</h1>
 		<h2>You are the members of {{user.user_group.count}} groups</h2>
 		<ul></ul>
 		{%for g in user.user_group.all %}
-		<li>{{g.group.name}}</li>
+		<li>Group Name - {{g.group.name}}</li>
 		{%endfor%}
+		<br><br><br>
+		
+		
 		</ul>
 	</div>
 </div>
+
+
+
+
+
  
  {%endblock%}

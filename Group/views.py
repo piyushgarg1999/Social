@@ -9,7 +9,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class CreateGroupView(CreateView,LoginRequiredMixin):
 	model = Group
-	fields=('name','discription')
+	fields=('name','discription'
+		)
 	# success_url=reverse_lazy('accounts:test')
 
 	def form_valid(self,form):

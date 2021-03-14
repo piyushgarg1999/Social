@@ -4,13 +4,14 @@
 <h1>Group:{{group.name}}</h1>
 <br>
 <div style="margin-left: 30px">
-	<h2><button style="border-radius:10pcpx;background-color: azure">Members<span style="margin-left:14px" class='badge badge-danger'>{{group.members.count}}</span></button></h2>
+	<h2><button style="border-radius:10pcpx;background-color: azure">Members<span style="margin-left:14px" class='badge badge-danger'>{{group.membership.count}}</span></button></h2>
 <br>
 <h2>Discription:{{group.discription}}	</h2>
+{{group.user.username}} Admin of this Group
 <br>
-{%for member in group.members.all %}
+{%for member in group.membership.all %}
 <ul>
-	<li>{{member.username}} is the member of this group</li>
+	<li>{{member.user.username}} is the member of this group</li>
 </ul>
 {%endfor%}
 
@@ -21,6 +22,7 @@
 	{%else%}
 	<a href="{%url 'groups:join_group' slug=group.slug %}" class = 'btn btn-lg btn-fill btn-warning'><span class = 'glyphicon glyphicon-ok-circle'></span>join group</a>
 	{%endif%}
+	
 	<a  class='btn btn-default btn-fill btn-success' href="{%url 'posts:create_post_form' pk=group.pk %}">Create Post</a>
 	{%if user.is_authenticated and user == group.user %}
 		<a  class = 'btn btn-lg btn-fill btn-danger' href="{%url 'groups:delete_group' slug=group.slug %}">Delete Group</a>
@@ -44,9 +46,9 @@
 
 {%else%}
 {%for post in group.posts.all %}
-<div style="background-color: snow;width: 500px" class="card">
+<div style="background-color: yellowgreen;width: 500px" class="card">
   <div class="card-body">
-   <ul><li>{{post.message}}by  <h2>Member"{{post.user.username}}"</h2></li></ul>
+   <ul><li>{{post.message}} <h2>Person"{{post.user.username}}"</h2></li></ul>
   </div>
 </div>
 <br>

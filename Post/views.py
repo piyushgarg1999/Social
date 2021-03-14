@@ -50,14 +50,14 @@ class MyPostCreateViewForm(LoginRequiredMixin,CreateView):
 	model=Post
 	fields=('message',)
 	
-	def form_valid(self,form,):
+	def form_valid(self,form):
 		self.object=form.save(commit=False)
 		self.object.user=self.request.user
 		
 		self.object.group=Group.objects.get(pk=self.kwargs['pk'])
 		self.object.save()
 		return super().form_valid(form)
-
+		
 
 
 class PostDeleteView(LoginRequiredMixin,DeleteView):

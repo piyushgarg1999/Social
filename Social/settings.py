@@ -25,7 +25,7 @@ SECRET_KEY = 'wkc9&-%$th=ki#jm)ie&x67nyb%ft1(_n5x&4$^*e$o3!$%$&_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.106','63e8c79b933d.ngrok.io', '127.0.0.1', '9de6be2312f3.ngrok.io',]
+ALLOWED_HOSTS = ['127.0.0.1:5500','192.168.0.106','0dfee8282977.ngrok.io', '127.0.0.1', '9de6be2312f3.ngrok.io',]
 
 
 # Application definition
@@ -117,6 +117,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+CORS_ORIGIN_ALLOW_TRUE=True;
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -125,4 +126,10 @@ STATIC_URL = '/static/'
 MEDIA_FILES = MEDIA_DIR
 MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = 'groups:list'
-LOGOUT_REDIRECT_URL ='accounts:afterlogout'
+LOGOUT_REDIRECT_URL ='accounts:login'
+# PASSWORD_CHANGE_DONE_REDIRECT_URL = 'accounts:password_changed\'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER='gargp6574@gmail.com'
+EMAIL_HOST_PASSWORD='@@@piyush'
+EMAIL_USE_TLS=True

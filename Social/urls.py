@@ -20,8 +20,8 @@ from Group import views
 from django.conf import settings
 urlpatterns =  [
     path('admin/', admin.site.urls),
-     path('',include('accounts.urls',namespace='accounts')),
-    path('Group/',include('Group.urls',namespace='Group')),
+    path('accounts/',include('accounts.urls',namespace='accounts')),
+    path('',include('Group.urls',namespace='Group')),
     path('post/',include('Post.urls',namespace='Post')),
-    path('',include('django.contrib.auth.urls')),
+    path('accounts/',include('django.contrib.auth.urls')),
     ]
